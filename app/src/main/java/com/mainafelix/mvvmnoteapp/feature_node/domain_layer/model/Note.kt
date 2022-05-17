@@ -11,4 +11,8 @@ class Note (
     val  color:Int,
     @PrimaryKey val id:Int?= null
         ){
+    companion object{
+        //create   a hard coded list a node can posibly have
+
+    }
 }
