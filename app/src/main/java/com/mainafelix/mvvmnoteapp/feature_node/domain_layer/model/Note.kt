@@ -15,5 +15,6 @@ class Note (
     companion object{
         //create   a hard coded list a node can posibly have
           val noteColor = listOf(RedOrange, lightGreen, violet,BabyBlue , redPink)
+
     }
 }
