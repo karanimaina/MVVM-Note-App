@@ -9,6 +9,6 @@ import kotlinx.coroutines.flow.Flow
 interface NoteDa {
     @Query("SELECT * FROM note")
     fun getNotes(): Flow<List<Note>>
-
+    @Query("SELECT * FROM note WHERE id =::id" )
     suspend fun getNoteById(id:Int):Note?
 }
