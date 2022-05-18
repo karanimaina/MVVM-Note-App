@@ -10,3 +10,4 @@ import javax.inject.Inject
 class NotesViewModel  @Inject constructor(
     private val noteUsedCases:NoteUseCases
 ):ViewModel()
+// create a one state wrapper class that represent  the current uistate of the noteSceen
