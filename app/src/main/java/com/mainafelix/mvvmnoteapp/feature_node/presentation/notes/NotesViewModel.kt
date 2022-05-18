@@ -8,7 +8,11 @@ import androidx.room.Insert
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.model.Note
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.NoteUseCases
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.util.NoteOrder
+import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,6 +25,10 @@ class NotesViewModel  @Inject constructor(
    val state: State<NoteState> =_state
 
     private var deletedRecentlyNote:Note? = null
+    private var getNotesJob: Job?= null
+    init {
+        getNotes(NoteOrder.Date(OrderType.Descending))
+    }
     fun onEvent(events: NoteEvents){
        when(events) {
            is NoteEvents.Order->{
@@ -54,7 +62,16 @@ class NotesViewModel  @Inject constructor(
     }
 //returns a flow fromm the database
     private fun getNotes(noteOrder: NoteOrder) {
-        noteUsedCases.getNotesUseCase(noteOrder)
+    getNotesJob?.cancel()
+      getNotesJob = noteUsedCases.getNotesUseCase(noteOrder)
+            .onEach { notes ->
+                _state.value = state.value.copy(
+                    notes= notes,
+                    noteOrder = noteOrder
+
+                )
+            }
+            .launchIn(viewModelScope)
 
     }
 }
