@@ -39,6 +39,7 @@ class NotesViewModel  @Inject constructor(
        viewModelScope.launch {
        noteUsedCases.addNote(deletedRecentlyNote?:return@launch)
            deletedRecentlyNote= null
+
        }
            }
        }
