@@ -37,7 +37,7 @@ class NotesViewModel  @Inject constructor(
            }
            is NoteEvents.RestoreNote->{
        viewModelScope.launch {
-
+       noteUsedCases
        }
            }
        }
