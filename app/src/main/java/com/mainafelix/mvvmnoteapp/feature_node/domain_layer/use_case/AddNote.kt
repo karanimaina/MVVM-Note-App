@@ -15,6 +15,6 @@ class AddNote (
         if (note.content.isBlank()){
             throw invalidNoteExceptioon("the content of the note can be empty")
         }
-      repository.insertNode(note)
+      repository.insertNode(note
     }
 }
