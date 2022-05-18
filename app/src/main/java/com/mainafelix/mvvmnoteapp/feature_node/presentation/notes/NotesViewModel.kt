@@ -9,5 +9,25 @@ import javax.inject.Inject
 @HiltViewModel
 class NotesViewModel  @Inject constructor(
     private val noteUsedCases:NoteUseCases
-):ViewModel()
-// create a one state wrapper class that represent  the current uistate of the noteSceen
+):ViewModel(){
+    // create a one state wrapper class that represent  the current uistate of the noteSceen
+    fun onEvent(events: NoteEvents){
+       when(events) {
+           is NoteEvents.Order->{
+
+           }
+           is NoteEvents.DeleteNote->{
+
+           }
+           is NoteEvents.ToggleOrderSection->{
+
+           }
+           is NoteEvents.RestoreNote->{
+
+           }
+       }
+
+    }
+}
+
+
