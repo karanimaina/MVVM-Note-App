@@ -3,6 +3,7 @@ package com.mainafelix.mvvmnoteapp.feature_node.domain_layer.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.mainafelix.mvvmnoteapp.ui.theme.*
+import java.lang.Exception
 
 @Entity
 class Note (
@@ -18,4 +19,4 @@ class Note (
 
     }
 }
-class invalidNoteExceptioon
+class invalidNoteExceptioon(message:String):Exception(message)
