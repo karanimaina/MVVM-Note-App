@@ -32,11 +32,11 @@ class NotesViewModel  @Inject constructor(
               deletedRecentlyNote = events.note
           }
            }
-           is NoteEvents.ToggleOrderSection->{
-             _state.value = state.value.copy(
-                 isOrderSectionVisble=!state.value.isOrderisOrderSectionVisble
-             )
-           }
+//           is NoteEvents.ToggleOrderSection->{
+//             _state.value = state.value.copy(
+//                 isOrderSectionVisble=!state.value.isOrderisOrderSectionVisble
+//             )
+//           }
            is NoteEvents.RestoreNote->{
        viewModelScope.launch {
 
