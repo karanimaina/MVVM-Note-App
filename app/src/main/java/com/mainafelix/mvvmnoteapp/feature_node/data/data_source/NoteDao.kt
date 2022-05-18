@@ -5,7 +5,7 @@ import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.model.Note
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface NoteDa {
+interface NoteDao {
     //returns a flow
     @Query("SELECT * FROM note")
     fun getNotes(): Flow<List<Note>>
@@ -15,6 +15,7 @@ interface NoteDa {
 // if we call the insert function with an id that already existing in the datanase  then it will just update the existing entry
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note : Note)
+
     @Delete
     suspend fun deleteNote(note:Note)
 
