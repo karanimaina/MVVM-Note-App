@@ -1,4 +1,4 @@
-package com.mainafelix.mvvmnoteapp.feature_node.presentation.notes.components
+package com.mainafelix.mvvmnoteapp.feature_node.presentation.notes
 
 import androidx.lifecycle.ViewModel
 import androidx.room.Insert
