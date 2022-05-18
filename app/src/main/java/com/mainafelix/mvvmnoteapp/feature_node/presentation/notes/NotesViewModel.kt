@@ -18,6 +18,7 @@ class NotesViewModel  @Inject constructor(
     // create a one state wrapper class that represent  the current uistate of the noteSceen
     private val _state = mutableStateOf(NoteState()) // state that contain the  state the ui will observe
    val state: State<NoteState> =_state
+
     private var deletedRecentlyNote:Note? = null
     fun onEvent(events: NoteEvents){
        when(events) {
