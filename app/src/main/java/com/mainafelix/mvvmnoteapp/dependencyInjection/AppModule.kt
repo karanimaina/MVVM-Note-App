@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.mainafelix.mvvmnoteapp.feature_node.data.data_source.NoteDatabase
 import com.mainafelix.mvvmnoteapp.feature_node.data.repository.NoteRepositoryImplementation
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.repository.NodeRepository
+import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.AddNote
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.DeleteNotesUseCase
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.GetNotesUseCase
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.NoteUseCases
@@ -37,7 +38,8 @@ object AppModule {
  fun ProvidesNoteRepository(repository: NodeRepository):NoteUseCases{
      return  NoteUseCases(
         getNotesUseCase = GetNotesUseCase(repository),
-         deleteNotesUseCase = DeleteNotesUseCase(repository))
+         deleteNotesUseCase = DeleteNotesUseCase(repository),
+         addNote = AddNote(repository))
  }
 
 
