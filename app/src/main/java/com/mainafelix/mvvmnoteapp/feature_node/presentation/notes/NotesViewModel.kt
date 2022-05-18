@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.room.Insert
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.model.Note
 import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.use_case.NoteUseCases
+import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.util.NoteOrder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,9 +24,11 @@ class NotesViewModel  @Inject constructor(
     fun onEvent(events: NoteEvents){
        when(events) {
            is NoteEvents.Order->{
+               //checking if the class of the first order type is the same as the class of the second order type
              if (state.value.noteOrder::class==events.noteOrder::class && state.value.noteOrder.orderType ==events.noteOrder.orderType ){
                  return
                  }
+               getNotes(events.noteOrder)
            }
            is NoteEvents.DeleteNote->{
 
@@ -47,6 +50,11 @@ class NotesViewModel  @Inject constructor(
        }
            }
        }
+
+    }
+//returns a flow fromm the database
+    private fun getNotes(noteOrder: NoteOrder) {
+        noteUsedCases.getNotesUseCase(noteOrder)
 
     }
 }
