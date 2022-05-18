@@ -13,14 +13,14 @@ class NoteRepositoryImplementation(
     }
 
     override suspend fun getNoteById(id: Int): Note? {
-        TODO("Not yet implemented")
+       return  dao.getNoteById(id)
     }
 
     override suspend fun insertNote(note: Note) {
-        TODO("Not yet implemented")
+           dao.insertNote(note)
     }
 
     override suspend fun deleteNote(note: Note) {
-        TODO("Not yet implemented")
+        dao.deleteNote(note)
     }
 }
