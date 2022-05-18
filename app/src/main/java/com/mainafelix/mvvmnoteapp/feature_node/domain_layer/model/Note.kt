@@ -18,3 +18,4 @@ class Note (
 
     }
 }
+class invalidNoteExceptioon
