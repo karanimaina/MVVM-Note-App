@@ -11,5 +11,6 @@ import com.mainafelix.mvvmnoteapp.feature_node.domain_layer.model.Note
 )
 
 abstract class NoteDatabase : RoomDatabase() {
+     abstract  val  noteDao:NoteDao
 
 }
